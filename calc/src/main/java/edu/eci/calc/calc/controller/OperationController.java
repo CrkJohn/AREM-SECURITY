@@ -5,11 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin(origins = "https://localhost:8443/")
+//(@CrossOrigin(origins = "https://localhost:8443/")
 @RequestMapping(value = "v1/operation")
 public class OperationController {
 
@@ -18,6 +19,7 @@ public class OperationController {
     IOperationServices operationServices;
 
     @GetMapping("/sum/{num1}/{num2}")
+    @Secured("ROLE_USER")
     public ResponseEntity<?> getSum(@PathVariable double num1 ,@PathVariable double num2){
         try {
             return new ResponseEntity<>(operationServices.makeOperation(num1,num2,"+"),HttpStatus.OK);
