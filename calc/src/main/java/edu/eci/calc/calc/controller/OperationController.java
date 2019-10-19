@@ -19,7 +19,6 @@ public class OperationController {
     IOperationServices operationServices;
 
     @GetMapping("/sum/{num1}/{num2}")
-    @Secured("ROLE_USER")
     public ResponseEntity<?> getSum(@PathVariable double num1 ,@PathVariable double num2){
         try {
             return new ResponseEntity<>(operationServices.makeOperation(num1,num2,"+"),HttpStatus.OK);
