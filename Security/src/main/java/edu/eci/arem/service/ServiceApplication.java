@@ -33,13 +33,13 @@ public class ServiceApplication {
 
 		try {
 			keyStore = KeyStore.getInstance("jks");
-			ClassPathResource classPathResource = new ClassPathResource("client.jks");
+			ClassPathResource classPathResource = new ClassPathResource("nt-gateway.jks");
 			InputStream inputStream = classPathResource.getInputStream();
-			keyStore.load(inputStream, "123456".toCharArray());
+			keyStore.load(inputStream, "nt-gateway".toCharArray());
 
 			SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(new SSLContextBuilder()
 					.loadTrustMaterial(null, new TrustSelfSignedStrategy())
-					.loadKeyMaterial(keyStore, "123456".toCharArray()).build(),
+					.loadKeyMaterial(keyStore, "nt-gateway".toCharArray()).build(),
 					NoopHostnameVerifier.INSTANCE);
 
 			HttpClient httpClient = HttpClients.custom().setSSLSocketFactory(socketFactory)
