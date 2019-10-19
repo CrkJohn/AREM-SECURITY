@@ -20,6 +20,13 @@ public class MathController {
     @Autowired
     Environment env;
 
+
+    @RequestMapping(value = "/data", method = RequestMethod.GET)
+    public String getData() {
+        System.out.println("Returning data from client own data method");
+        return "Hello from client data method";
+    }
+
     @RequestMapping(value = "/data/server", method = RequestMethod.GET)
     public String getServerData() {
         System.out.println("Got inside server data method");
@@ -27,7 +34,7 @@ public class MathController {
             String Endpoint = env.getProperty("endpoint.serverData");
             System.out.println("MS Endpoint name : [" + Endpoint + "]");
 
-            return restTemplate.getForObject(new URI(Endpoint), String.class);
+            return restTemplate.getForObject(new URI(Endpoint+"/sum/1/2"), String.class);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
