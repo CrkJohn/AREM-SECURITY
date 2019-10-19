@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 //(@CrossOrigin(origins = "https://localhost:8443/")
-@RequestMapping(value = "v1/operation")
+    @RequestMapping(value = "v1/operation")
 public class OperationController {
 
     @Autowired
