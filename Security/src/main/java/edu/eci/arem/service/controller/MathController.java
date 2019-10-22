@@ -2,6 +2,7 @@ package edu.eci.arem.service.controller;
 
 import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,14 +28,14 @@ public class MathController {
         return "Hello from client data method";
     }
 
-    @RequestMapping(value = "/data/server", method = RequestMethod.GET)
-    public String getServerData() {
+    @RequestMapping(value = "/data/server/{n1}/{n2}", method = RequestMethod.GET)
+    public String getServerData(@PathVariable int n1, @PathVariable int n2) {
         System.out.println("Got inside server data method");
         try {
             String Endpoint = env.getProperty("endpoint.serverData");
             System.out.println("MS Endpoint name : [" + Endpoint + "]");
 
-            return restTemplate.getForObject(new URI(Endpoint+"/sum/1/2"), String.class);
+            return restTemplate.getForObject(new URI(Endpoint+"/sum/"+n1+"/"+n2+""), String.class);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
