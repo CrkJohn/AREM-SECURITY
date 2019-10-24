@@ -11,7 +11,12 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
-@Data
+
+
+/**
+ *   A class used to represent a User with properties basic for can do un security login, this class use JPA
+ */
+@Data  // This annotation let generate all set and get of properties of the User , No need to put it on
 @Entity
 @Table(name = "user")
 @AllArgsConstructor

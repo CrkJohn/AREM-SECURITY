@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ *   A class used to represent a User's role  for can do un security login, this class use JPA
+ */
 @Data
 @Entity
 @Table(name = "role")

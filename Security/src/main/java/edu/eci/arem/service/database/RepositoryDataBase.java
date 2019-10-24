@@ -10,7 +10,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
+/**
+ * A class used to represent the conetion data base
+ */
 @Component
 public class RepositoryDataBase {
 	
@@ -21,7 +23,9 @@ public class RepositoryDataBase {
 	@Value("${spring.datasource.password}")
 	private String dbPassword;
 	
-	
+	/**
+	 * dataSource generate an instance of the database with the environment variables
+	 */
 	@Bean
 	public DataSource dataSource() throws SQLException {
 		if (dbUrl == null || dbUrl.isEmpty()) {

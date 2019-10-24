@@ -24,6 +24,11 @@ public class ServiceApplication {
 		SpringApplication.run(ServiceApplication.class, args);
 	}
 
+
+	/**
+	 * getRestTemplate represents the form that RestTemplate to use the trust store with server certificate.
+	 * @return
+	 */
 	@Bean
 	public RestTemplate getRestTemplate() {
 		RestTemplate restTemplate = new RestTemplate();

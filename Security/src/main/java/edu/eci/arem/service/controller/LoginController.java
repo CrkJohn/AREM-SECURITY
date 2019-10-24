@@ -14,6 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
+/**
+ * A class used to represent the login controller of the API, this works for a security login and registration of the api
+ */
 @Controller
 public class LoginController {
 

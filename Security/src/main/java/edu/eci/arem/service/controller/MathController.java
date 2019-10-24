@@ -11,6 +11,9 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 
 
+/**
+ * A class used to represent the caculator, this class makes the petition to the other api
+ */
 @RestController
 @RequestMapping(value="/math")
 public class MathController {
@@ -21,13 +24,23 @@ public class MathController {
     @Autowired
     Environment env;
 
-
+    /**
+     *
+     * @return  a string that implies that the client is working
+     */
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public String getData() {
         System.out.println("Returning data from client own data method");
         return "Hello from client data method";
     }
 
+
+    /**
+     *
+     * @param n1 num1 to add
+     * @param n2 num2 to add
+     * @return returns a string that is the calculation of adding two numbers
+     */
     @RequestMapping(value = "/data/server/{n1}/{n2}", method = RequestMethod.GET)
     public String getServerData(@PathVariable int n1, @PathVariable int n2) {
         System.out.println("Got inside server data method");

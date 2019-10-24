@@ -11,7 +11,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 
-
+/**
+ * A class used to represent the service the login and register
+ */
 @Service("userService")
 public class UserService {
 
@@ -19,6 +21,13 @@ public class UserService {
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+
+    /**
+     *
+     * @param userRepository user repository injection
+     * @param roleRepository role repository injection
+     * @param bCryptPasswordEncoder Injection class that allows us to encrypt the password
+     */
     @Autowired
     public UserService(UserRepository userRepository,
                        RoleRepository roleRepository,
@@ -28,10 +37,20 @@ public class UserService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+
+    /**
+     *
+     * @param email   that will be consulted to recognize if there are db
+     * @return User that has a email equals that param email
+     */
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
+    /**
+     *
+     * @param user to be saved in the database
+     */
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
