@@ -7,9 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+/**
+ * A class used to represent a service that let to make operation math
+ */
 @RestController
-//(@CrossOrigin(origins = "https://localhost:8443/")
 @RequestMapping(value = "v1/operation")
 public class OperationController {
 
