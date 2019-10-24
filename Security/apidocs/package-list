@@ -1,0 +1,7 @@
+edu.eci.arem.service
+edu.eci.arem.service.configuration
+edu.eci.arem.service.controller
+edu.eci.arem.service.database
+edu.eci.arem.service.model
+edu.eci.arem.service.repository
+edu.eci.arem.service.services
